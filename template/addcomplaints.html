@@ -1,0 +1,38 @@
+{% extends 'ubase.html' %}
+{% load static %}
+{% block content %}
+<div class="col-md-9 main">
+	<!-- register -->
+			<div class="sign-up-form">
+				 <h3 class="tittle">Any Complaints <i class="glyphicon glyphicon-file"></i></h3>
+					<p>we are here yto help on your queries and Complaints</p>
+				<div class="sign-up">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+					 <!-- <h3 class="tittle reg">Personal Information <i class="glyphicon glyphicon-user"></i></h3> -->
+					<div class="sign-u">
+						<div class="sign-up1">
+							<h4 class="a">write in detail:</h4>
+						</div>
+						<div class="sign-up2">
+								<textarea name="complaint"></textarea>
+
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="sign-u">
+						
+						
+						
+					
+					
+						<input type="submit" value="Submit">
+					</form>
+				</div>
+			</div>
+<!-- //register -->
+<!-- //login-page -->
+			<div class="clearfix"> </div>
+	
+
+{% endblock %}

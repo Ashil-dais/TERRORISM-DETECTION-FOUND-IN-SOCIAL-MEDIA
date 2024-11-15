@@ -1,0 +1,95 @@
+{% extends 'abase.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<style>
+    #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 800px;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #f26649;
+      color: white;
+    }
+    .button {
+      
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    </style>
+    </head>
+    <body >
+    <div style="margin-left: 350px;">
+        <br>
+        <br>
+        <br>
+    <table id="customers" >
+      <tr >
+        
+        <th>user</th>
+       
+        
+        <th>id</th>
+        <th>Reason</th>
+      </tr>
+     
+      {% for i in data %}
+      <tr>
+        
+        <td>{{i.6}} {{i.7}}</td>
+     
+        <td>{{i.3}}</td>
+        <td>{{i.4}}</td>
+        <td><a href="/admin_change_block/?aid={{i.0}}">Unblock</a></td>
+      </tr>
+      {% endfor %}
+     
+    </table>
+    <br/>
+    {% if message %}
+    <div style="margin: auto;">
+        <table id="customers">
+            <tr><th>sender</th><th>Receiver</th><th>Date</th><th>message</th></tr>
+     {% for i in message %}
+     <tr><td>{{i.1}}</td><td>{{i.2}}</td><td>{{i.3}}</td><td>{{i.4}}</td></tr>
+     
+     {% endfor %}
+     </table>
+      <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" style="background-color: #ffc107;" class="button" value="Warn" name="warn">
+        <input type="submit" style="background-color: #2196F3;" class="button" value="Block" name="block">
+        <input type="submit" style="background-color: #e91e63;" class="button" value="Remove" name="remove">
+
+      </form>
+      </p>
+      </center>
+    </div>
+    
+    {% endif %}
+</div>
+
+{% endblock %}

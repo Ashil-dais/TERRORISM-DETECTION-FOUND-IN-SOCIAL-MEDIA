@@ -1,0 +1,84 @@
+{% extends 'ubase.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'comment/css/style.css' %}" type="text/css" media="all" />
+<link rel="stylesheet" href="{% static 'comment/css/grids.css' %}" type="text/css" media="all" />
+<script type="text/javascript" src="{% static 'comment/js/jquery.min.js' %}"></script>
+<body>
+    <div class="main">
+     <div class="wrap">
+         
+     </div>
+     
+         <div class="right-content">
+             
+         <div class="content">
+             <div class="box1">
+                     <!-- <h3><a href="details.html">{{statusdata}}</a></h3> -->
+                     <span>By {{statusdata.1}} {{statusdata.2}}- {{statusdata.5}}<span class="comments">{{statusdata.8}} commets</span></span> 
+                <div class="blog-img">
+                     <div class="view-back">
+                         
+                         <span class="likes" title="likes">likes({{statusdata.6}})</span>
+                        
+                        
+                         <a href="/statusreport/?id={{statusdata.7}}"> </a>
+                     </div>
+                     <img src="{% static statusdata.4 %}">
+                 </div>
+                 <span><span class="comments"><a href="/getstatusdata/?id= {{statusdata.7}}&uid={{user}}&statuslike=status">{{statusdata.6}} like</a></span></span>
+                
+                 <div class="blog-data">
+                    <p>  {{statusdata.3}}    </p>                     
+                 </div>
+             <div class="clear"></div>
+         </div>			
+         <!----------------  Comment Area -------------------->
+         <div class="comments-area">
+                         <h3>Leave a comment</h3>
+                             <form method="POST">
+                                 {% csrf_token %}
+                                 
+                                 <p>
+                                     <label>Subject</label>
+                                     <span>*</span>
+                                     <textarea name="msg"></textarea>
+                                 </p>
+                                 <p>
+                                     <input type="submit" value="Post">
+                                 </p>
+                             </form>		
+                         </div>
+                         
+                         <div class="box comment">
+         <h2><span>({{statusdata.8}})</span> Comment's</h2>
+         {% for comment in comments %}
+         <ul class="list">
+             <li>
+                 <div class="preview"><a href="#"><img src="{% static comment.0 %}" alt=""></a></div>
+                 <div class="data">
+                     <div class="title">{{comment.1}} {{comment.2}} <a href="#"> {{comment.3}}</a></div>
+                     <p>{{comment.4}}</p>
+                 </div>
+                 <div class="clear"></div>
+             </li>            
+         </ul>
+         {% endfor %}
+       <div class="clear"></div>
+     </div>
+     
+     
+     <div class="clear"> </div>
+         <!----------------- End Comment Area ----------------->				
+     </div>
+   </div>
+         <div class="clear"></div>
+     </div>
+ </div>
+ </body>
+
+
+{% endblock %}

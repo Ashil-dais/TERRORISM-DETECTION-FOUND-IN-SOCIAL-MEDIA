@@ -1,0 +1,100 @@
+{% extends 'ubase.html' %}
+{% load static %}
+
+
+{% block content %}
+
+   
+    <style>
+        .card {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          max-width: 300px;
+          margin: 10px;
+          text-align: center;
+          font-family: arial;
+          display: inline-block;
+        }.
+        
+        .title {
+          color: grey;
+          font-size: 18px;
+        }
+        
+       .button {
+          border: none;
+          outline: 0;
+          display: inline-block;
+          padding: 8px;
+          color: white;
+          background-color: #000;
+          text-align: center;
+          cursor: pointer;
+          width: 50%;
+          font-size: 18px;
+          
+        }
+        
+        .card a {
+          text-decoration: none;
+          font-size: 22px;
+          color: rgb(255, 255, 255);
+        }
+        
+        .button:hover, a:hover {
+          opacity: 0.7;
+        }
+        .bb{
+            display: flex;
+        }
+        </style>
+        </head>
+        <body>
+<div class="col-md-9 main">
+    <br/>
+    
+    {% for da in data %}
+        <!-- <h2 style="text-align:center">User Profile Card</h2> -->
+        
+     
+        <div class="card">
+          {% if da %}
+          <h1>{{da.0}} <span>{{da.1}}</span></h1>
+            {% if da.5 %}
+             <img src="{% static da.5 %}" alt="John" style="width:100%">
+             {{da.2}}
+             <p>
+              {{da.6}}
+             </p>
+             
+             {% else %}
+             <img src="{% static 'media/fakeuser.png' %}" alt="John" style="width:100%">
+             <h1>No other data given</h1>
+            
+            {% endif %}
+            
+                       
+            <div class ="bb">
+           
+            <a href='/action/?status=accepted&friend={{da.2}}&friend2={{user}}' class="button">Confirm</a>               
+            <a href='/action/?status=rejected&friend={{da.2}}&friend2={{user}}' class="button">Reject</a>
+            
+           
+            <!-- <a style="margin-left:auto;margin-right:auto;" href='/action/?status=accepted&friend={{da.1}}' class="button">Confirm</a>  -->
+      
+            
+            {% endif %}
+            </div>
+            
+            
+
+       
+             
+    
+        </div>
+        
+ 
+    {% endfor %}
+
+    
+</div>
+{% endblock %}

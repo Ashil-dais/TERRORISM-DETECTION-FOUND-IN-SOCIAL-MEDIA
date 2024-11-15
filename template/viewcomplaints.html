@@ -1,0 +1,56 @@
+{% extends 'abase.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<style>
+    #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 800px;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #f26649;
+      color: white;
+    }
+    </style>
+    </head>
+    <body >
+    <div style="margin-left: 350px;">
+        <br>
+        <br>
+        <br>
+    <table id="customers" >
+      <tr >
+        <th>Id</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>User</th>
+      </tr>
+      {% for i in data %}
+      <tr>
+        <td>{{i.0}}</td>
+        <td>{{i.1}}</td>
+        <td>{{i.2}}</td>
+        <td>{{i.4}}</td>
+      </tr>
+      {% endfor %}
+     
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'ubase.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<script src="{% static 'js/modernizr.custom.js' %}"></script>
+<script src="{% static 'js/jquery.min.js' %}"> </script>
+<!--/script-->
+<script type="text/javascript" src="{% static 'js/move-top.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
+<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+				});
+			});
+</script>
+
+</head>
+<body>
+	<!-- header-section-starts -->
+      
+	<div class="full">
+			
+	<div class="col-md-9 main">
+	  <!--grids-->
+	   <div class="gallery-section">
+	     <h3 class="tittle">Find Friends <i class="glyphicon glyphicon-fullscreen"></i></h3>
+         <div class="categorie-grids cs-style-1">
+             {% for i in data %}
+				 <div class="col-md-4 cate-grid grid">
+					<figure>
+						<img src="{% static i.2 %}" width="380px" height="240px" alt="">
+						<figcaption>
+							<h3>{{i.11}} {{i.12}}</h3>
+							<span>{{i.13}}</span>
+							<a  href="/viewprofile/?id={{i.1}}" >VIEW</a>
+						</figcaption>
+					</figure>
+				 </div>
+                 {% endfor %} 
+				
+ <script src="{% static 'js/lightbox.js' %}"></script>
+			 <div class="clearfix"></div>
+		 </div>
+	 </div>
+     <div class="clearfix"> </div>
+	
+	 <div class="clearfix"> </div>
+	</div>
+	<div class="clearfix"> </div>
+</div>	
+		<!--//footer-->
+			<!--start-smooth-scrolling-->
+						<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear' 
+								 		};
+										*/
+										
+										$().UItoTop({ easingType: 'easeOutQuart' });
+										
+									});
+								</script>
+		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+
+
+{% endblock %}

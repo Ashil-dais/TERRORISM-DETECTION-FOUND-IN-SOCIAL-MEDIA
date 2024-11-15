@@ -1,0 +1,84 @@
+{% extends 'ubase.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<!--Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<link href="{% static 'profile/css/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
+<!-- Custom Theme files -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="keywords" content="Simple Profile Widget Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free web designs for Nokia, Samsung, LG, sony ericsson, Motorola web design" />
+<link href='//fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+<script src="{% static 'profile/js/jquery.js' %}" type="text/javascript"></script>
+<script type="text/javascript" src="{% static 'profile/js/script.js' %}"></script>
+</head>
+<body>
+	<div class="head">
+		<div class="head-text">
+			<h1></h1>
+		</div>
+		<div class="login">
+			<div class="header">
+				<div class="text">
+                    {% if profile.7 is not None %}
+					<img src="{% static profile.7 %}" alt="" />
+                    {% else %}
+                    <img src="{% static 'media/du1.jpg' %}" alt="" />
+
+                    {% endif %}
+					<h2>{{profile.1}} {{profile.2}}</h2>
+					<a href="{{profile.3}} email"><p>{{profile.3}}</p></a>
+				</div>
+			</div>
+			<!-- <div class="followers">
+				<div class="f-left f-1">
+					<a href="#"><span class="f1"></span></a>
+				</div>
+				<div class="f-left f-middle">
+					<a href="#"><span class="f2"></span></a>
+				</div>
+				<div class="f-left f-right">
+					<a href="#"><span class="f3"></span></a>
+				</div>
+					<div class="clear"></div>
+			</div> -->
+			<ul class="content">
+      <li class="menu">
+               <ul>
+		    <li class="button"><a href="#">Messages<span class="icon stat"> </span><i></i></a></li>          	
+            <li class="dropdown">
+                <ul class="icon-navigation">
+                    <li><a href="/message/">Inbox<span>{{msgcount}}</span></a></li>
+                   
+                </ul>
+			</li>
+          </ul>      
+      </li>     
+      <li class="menu">
+        <ul>
+		    <li class="button"><a href="#">Profile<span class="icon"> </span></a></li>
+            <li class="dropdown">
+                <ul class="icon-navigation">
+                    <li><a href="/requestlist/?status=pending">New Friends Request</a></li>
+                    <li><a href="/requestlist/?status=rejected">Rejectd List</a></li>
+                    <li><a href="/friends/">Friend List</a></li>
+                    <li><a href="/about/">About You</a></li>
+                    
+                </ul>
+			</li>
+          </ul>   		  
+      </li>
+  </ul>
+		</div>				
+	</div>	
+	
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'ubase.html' %}
+{% load static %}
+
+
+{% block content %}
+<br/>
+<br/>
+<style>
+    .contact{
+    float: left;
+    width: 50%;
+    background: #8a16c9;
+    padding: 3em 2em;
+    color: white;
+    margin-left: 500px;
+    }
+    .contact p{
+        color: tomato;
+        font-weight: bold;
+        font-size: large;
+    }
+    span{
+        color: yellowgreen;
+        
+    }
+</style>
+<div class="contact">
+    <center>    <h2><span>{{data.11}}</span>&nbsp;{{data.12}}</h2>
+    <br/>
+    <img src='{% static data.2 %}' width="384px" height="384px" />
+    <p>&nbsp;</p>
+    <h4>{{data.1}}</h4>
+   <p> Address :<span>{{data.3}}</span></p> 
+   <p> Gender :<span>{{data.4}}</span></p> 
+   <p> school :<span>{{data.6}}</span></p> 
+   <p> college :<span>{{data.7}}</span></p> 
+   <p> work :<span>{{data.8}}</span></p> 
+   <p>&nbsp;</p>
+   {% if friend == 'accepted' %}
+        <h1>You are already Friend with <h2><span>{{data.11}}</span>&nbsp;{{data.12}}</h2> </h1>
+   {% elif friend == 'rejected' %}
+        <h1>You request has been Rejected </h1>
+    {% elif friend == 'pending' %}
+        <h1>Request in pending </h1>
+        {% else %}
+        <a href="/addfriend/?id={{data.1}}" class="buttonb1">Add friend</a>
+    {% endif %}
+
+</center>
+
+         
+</div>
+{% endblock %}

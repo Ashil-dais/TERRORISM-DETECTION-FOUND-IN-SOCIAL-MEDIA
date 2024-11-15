@@ -1,0 +1,131 @@
+{% extends 'ubase.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<div class="col-md-9 main">
+	<!-- register -->
+			<div class="sign-up-form">
+				 
+				<div class="sign-up">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+					
+					 <h3 class="tittle reg">Personal Information <i class="glyphicon glyphicon-user"></i></h3>
+					<div class="sign-u">
+						<div class="sign-up1">
+							<h4 class="a">Profile Pic :</h4>
+						</div>
+						<div class="sign-up2">
+								<input type="file" class="text" name="file" >
+								{% if profile.2 %}
+								<img src="{% static profile.2 %}" width="320px" height="320px" alt="" srcset="">
+								{% endif %}
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="sign-u">
+						<div class="sign-up1">
+							<h4 class="b">Address:</h4>
+						</div>
+						<div class="sign-up2">
+								<!-- <input type="text" class="text" name="lname" value="Last Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}"> -->
+                                <textarea class="text" name="address">{{profile.3}}</textarea>
+						
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="sign-u">
+						<div class="sign-up1">
+							<h4 class="c">Gender :</h4>
+						</div>
+						<div class="sign-up2">
+							{% if profile.4 == "Male" %}
+								 <input type="radio" class="text" name="gender" value="Male" checked="checked"> Male
+								 <input type="radio" class="text" name="gender" value="Female">Female
+
+							{% elif profile.4 == "Female" %}
+							<input type="radio" class="text" name="gender" value="Male"> Male
+							<input type="radio" class="text" name="gender" value="Female" checked="checked">Female
+							{% else %}
+							<input type="radio" class="text" name="gender" value="Male"> Male
+							<input type="radio" class="text" name="gender" value="Female">Female
+							{% endif %}
+							
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					 <!-- <h3 class="tittle reg">Login Information <i class="glyphicon glyphicon-off"></i></h3> -->
+					<div class="sign-u">
+						<div class="sign-up1">
+							<h4 class="d">Dob</h4>
+						</div>
+						<div class="sign-up2">
+							
+								 <input type="date" name="dob" class="text" value="{{profile.5}}" >
+
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="sign-u">
+						<div class="sign-up1">
+							<h4>school:</h4>
+						</div>
+						<div class="sign-up2">
+							
+								
+                            <input type="text" name="school" class="text" value="{{profile.6}}" >	
+
+						
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+                    <div class="sign-u">
+						<div class="sign-up1">
+							<h4>College:</h4>
+						</div>
+						<div class="sign-up2">
+							
+								
+                            <input type="text" name="college" class="text" value="{{profile.7}}" >	
+
+						
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+                    <div class="sign-u">
+						<div class="sign-up1">
+							<h4>Work:</h4>
+						</div>
+						<div class="sign-up2">
+							
+								
+                            <input type="text" name="work" class="text" value="{{profile.8}}" >	
+
+						
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="sign-u">
+						<div class="sign-up1">
+							<h4>Phone:</h4>
+						</div>
+						<div class="sign-up2">
+							
+								
+                            <input type="text" name='phone' class="text" value="{{profile.9}}" >	
+
+						
+						</div>
+						
+						<input type="submit" value="Submit">
+					</form>
+				</div>
+			</div>
+<!-- //register -->
+<!-- //login-page -->
+			<div class="clearfix"> </div>
+
+{% endblock %}
